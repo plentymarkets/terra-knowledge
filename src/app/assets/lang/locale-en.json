@@ -1,0 +1,17 @@
+{
+	"templateDrivenForm": "Template driven Form",
+	"reactiveForm": "Reactive Form",
+	"id": "ID",
+	"name": "Name",
+	"forename": "Forname",
+	"shirtSize": "T-shirt size",
+	"skills": "Skills",
+	"preferredDrinkingSize": "Preferred drinking size in liters",
+	"drinkName": "drink name",
+	"submit": "submit",
+	"error": {
+		"name": "Name is mandatory",
+		"forename": "Forename is mandatory",
+		"shirtSize": "Wrong T-shirt size. Please enter one one of the following sizes: {{possibleShirtSizes}}"
+	}
+}

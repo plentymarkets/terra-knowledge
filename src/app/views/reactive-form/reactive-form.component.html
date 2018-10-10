@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <img src="/src/app/assets/images/logo_plenty_long.svg">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+            <terra-portlet [inputPortletHeader]="'reactiveForm' | translate:lang">
+                <form [formGroup]="terraristForm">
+                    <terra-button [inputCaption]="'submit' | translate:lang"
+                                  (outputClicked)="submit(terraristForm)"></terra-button>
+                    <terra-number-input [inputName]="'id' | translate:lang"
+                                        formControlName="id">
+                    </terra-number-input>
+                    <terra-text-input [inputName]="'name' | translate:lang"
+                                      formControlName="name">
+                    </terra-text-input>
+                    <terra-text-input [inputName]="'forename' | translate:lang"
+                                      formControlName="forename">
+                    </terra-text-input>
+                    <terra-text-input [inputName]="'shirtSize' | translate:lang"
+                                      formControlName="shirtSize">
+                    </terra-text-input>
+                    
+                    <terra-multi-check-box [inputName]="'skills' | translate:lang"
+                                           [(ngModel)]="skills"
+                                           formControlName="skills">
+                    </terra-multi-check-box>
+                    
+                    <div class="container-fluid"
+                         *ngIf="terrarist.drinks"
+                         formArrayName="drinks">
+                        <div class="row"
+                             *ngFor="let drink of terraristForm.controls.drinks.controls; last as isLast; index as index"
+                             [formGroupName]="index">
+                            <terra-text-input class="col-sm-5"
+                                              [inputName]="'drinkName' | translate:lang"
+                                              formControlName="name">
+                            </terra-text-input>
+                            
+                            <terra-number-input class="col-sm-5"
+                                                [inputName]="'preferredDrinkingSize' | translate:lang"
+                                                formControlName="preferredDrinkingSize">
+                            </terra-number-input>
+                            
+                            <terra-button class="col-sm-1"
+                                          inputIcon="icon-delete"
+                                          (outputClicked)="removeDrink(drink, index)">
+                            </terra-button>
+                            
+                            <terra-button class="col-sm-1"
+                                          *ngIf="isLast"
+                                          inputIcon="icon-add"
+                                          (outputClicked)="addDrink()">
+                            </terra-button>
+                        </div>
+                    </div>
+                </form>
+            </terra-portlet>
+        </div>
+        <div class="col-sm-4" *ngIf="terraristForm.controls">
+            <div *ngIf="terraristForm.controls.name"
+                 [hidden]="terraristForm.controls.name.valid || terraristForm.controls.name.pristine"
+                 class="alert alert-danger">
+                {{ 'error.name' | translate:lang }}
+            </div>
+            <div *ngIf="terraristForm.controls.forename"
+                 [hidden]="terraristForm.controls.forename.valid || terraristForm.controls.forename.pristine"
+                 class="alert alert-danger">
+                {{ 'error.forename' | translate:lang }}
+            </div>
+            <div *ngIf="terraristForm.controls.shirtSize"
+                 [hidden]="terraristForm.controls.shirtSize.valid || terraristForm.controls.shirtSize.pristine"
+                 class="alert alert-danger">
+                {{ 'error.shirtSize' | translate:lang:{ possibleShirtSizes: possibleShirtSizes } }}
+            </div>
+        </div>
+    
+    </div>
+</div>

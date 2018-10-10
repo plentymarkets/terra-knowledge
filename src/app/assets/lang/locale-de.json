@@ -1,0 +1,17 @@
+{
+	"templateDrivenForm": "Template driven Form",
+	"reactiveForm": "Reactive Form",
+	"id": "ID",
+	"name": "Name",
+	"forename": "Vorname",
+	"shirtSize": "T-Shirt Größe",
+	"skills": "Fähigkeiten",
+	"preferredDrinkingSize": "Bevorzugte Getränkegröße in Liter",
+	"drinkName": "Getränkename",
+	"submit": "Abschicken",
+	"error": {
+		"name": "Name ist ein Pflichtfeld",
+		"forename": "Vorname ist ein Pflichtfeld",
+		"shirtSize": "Falsche T-Shirt Größe. Bitte eine der folgenden Größen angeben: {{possibleShirtSizes}}"
+	}
+}
