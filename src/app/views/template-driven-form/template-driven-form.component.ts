@@ -15,7 +15,7 @@ import { DrinkInterface } from '../../core/data-model/drink.interface';
 @Component({
     selector:    'tk-template-driven-form',
     templateUrl: './template-driven-form.component.html',
-    styleUrls:   ['./template-driven-form.component.scss'],
+    styles:   [require('./template-driven-form.component.scss')],
 })
 export class TemplateDrivenFormComponent implements OnInit
 {

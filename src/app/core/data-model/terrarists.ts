@@ -10,6 +10,9 @@ export const terrarists:Array<TerraristInterface> = [
                     'typescript',
                     'html_css',
                     'reactive_forms'],
+        skills2: 'typescript',
+        ill: false,
+        gender: 'male',
         drinks:    [
             {
                 name:                  'Bier',

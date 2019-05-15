@@ -5,7 +5,7 @@ import { terrarists } from './core/data-model/terrarists';
 @Component({
     selector:    'tk-terra-basic-app',
     templateUrl: './terra-knowledge.component.html',
-    styleUrls:   ['./terra-knowledge.component.scss'],
+    styles:   [require('./terra-knowledge.component.scss')],
 })
 export class TerraKnowledgeComponent
 {

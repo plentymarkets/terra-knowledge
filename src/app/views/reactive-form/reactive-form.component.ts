@@ -21,7 +21,7 @@ import { drinksValidator } from '../../core/validation/drinks-validator';
 @Component({
     selector:    'tk-reactive-form',
     templateUrl: './reactive-form.component.html',
-    styleUrls:   ['./reactive-form.component.scss'],
+    styles:   [require('./reactive-form.component.scss')],
 })
 export class ReactiveFormComponent implements OnInit
 {
@@ -63,6 +63,9 @@ export class ReactiveFormComponent implements OnInit
             forename:  [this.terrarist.forename],
             shirtSize: [this.terrarist.shirtSize, [shirtSizeValidator(this.shirtSizes)]],
             skills:    [this.terrarist.skills],
+            skills2:   [this.terrarist.skills2],
+            ill:       [this.terrarist.ill],
+            gender:     [this.terrarist.gender],
             drinks:    this.createDrinksFormArray(this.terrarist.drinks)
         });
 
@@ -102,6 +105,7 @@ export class ReactiveFormComponent implements OnInit
      */
     protected submit():void
     {
+        console.log('submit: ');
         console.log(this.terraristForm);
     }
 

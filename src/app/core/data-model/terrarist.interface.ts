@@ -7,5 +7,8 @@ export interface TerraristInterface
     name:string;
     shirtSize:string | number;
     skills:Array<string>;
+    skills2:string;
+    ill:boolean;
+    gender:string;
     drinks:Array<DrinkInterface>;
 }

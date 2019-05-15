@@ -9,12 +9,13 @@
         </div>
         <div class="col-sm-4">
             <terra-portlet [inputPortletHeader]="'reactiveForm' | translate:lang">
-                <form [formGroup]="terraristForm">
-                    <terra-button [inputCaption]="'submit' | translate:lang"
-                                  (outputClicked)="submit(terraristForm)"></terra-button>
-                    <terra-number-input [inputName]="'id' | translate:lang"
-                                        formControlName="id">
-                    </terra-number-input>
+                <form [formGroup]="terraristForm" (ngSubmit)="submit()">
+                    <terra-button inputType="submit" [inputCaption]="'submit' | translate:lang"></terra-button>
+                    <div formControlName="id">
+                        <terra-number-input [inputName]="'id' | translate:lang"
+                                            formControlName="id">
+                        </terra-number-input>
+                    </div>
                     <terra-text-input [inputName]="'name' | translate:lang"
                                       formControlName="name">
                     </terra-text-input>
@@ -25,10 +26,32 @@
                                       formControlName="shirtSize">
                     </terra-text-input>
                     
+                    <terra-select-box [inputName]="'skills' | translate:lang"
+                                      [inputListBoxValues]="skills"
+                                      formControlName="skills2">
+                    </terra-select-box>
+                    
                     <terra-multi-check-box [inputName]="'skills' | translate:lang"
                                            [(ngModel)]="skills"
                                            formControlName="skills">
                     </terra-multi-check-box>
+                    
+                    <terra-checkbox [inputCaption]="'ill' | translate:lang"
+                                    formControlName="ill">
+                    </terra-checkbox>
+                    
+                    <terra-radio-button [inputValue]="'male'"
+                                        [inputCaption]="'male' | translate:lang"
+                                        [(ngModel)]="terrarist.gender"
+                                        formControlName="gender">
+                        
+                    </terra-radio-button>
+                    <terra-radio-button [inputValue]="'female'"
+                                        [inputCaption]="'female' | translate:lang"
+                                        [(ngModel)]="terrarist.gender"
+                                        formControlName="gender">
+                        
+                    </terra-radio-button>
                     
                     <div class="container-fluid"
                          *ngIf="terrarist.drinks"
